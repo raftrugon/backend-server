@@ -11,6 +11,7 @@ var mdAutenticacion = require('../middlewares/autenticacion');
 // =====================================
 app.get('/', (req, res, next) => {
     Hospital.find({})
+        .populate('usuario', 'nombre email')
         .exec(
             (err, hospitales) => {
 
