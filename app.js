@@ -16,6 +16,8 @@ app.use(bodyParser.json())
 // Importar Rutas
 var appRoutes = require('./routes/app');
 var usuarioRoutes = require('./routes/usuario');
+var hospitalRoutes = require('./routes/hospital');
+var medicolRoutes = require('./routes/medico');
 var loginRoutes = require('./routes/login');
 
 //Conexion a la BBDD
@@ -31,6 +33,8 @@ mongoose.connection.openUri('mongodb://localhost:27017/hospitalDB', (err, res) =
 
 // Rutas
 app.use('/usuario', usuarioRoutes);
+app.use('/hospital', hospitalRoutes);
+app.use('/medico', medicolRoutes);
 app.use('/login', loginRoutes);
 app.use('/', appRoutes);
 
